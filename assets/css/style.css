@@ -1,0 +1,39 @@
+body {
+  background-color: 	#f9fbfd;
+  margin-top: 25px;
+  
+
+  
+}
+#title {
+
+  text-align: center;
+}
+
+.row {
+  margin-top: 50px;
+}
+
+#generate-btn {
+
+  background-color: maroon;
+  color: white;
+  border-radius: 25px;
+}
+
+#copy-btn {
+  float: right;
+  background-color: #c0c7cf;
+  color: white;
+  border-radius: 25px;
+}
+
+
+
+.outputBox {
+  text-align: center;
+  color: #757575;
+  border: 2px dashed #c0c7cf;
+  height: 120px;
+ /* margin-bottom: 15px; */
+} 
