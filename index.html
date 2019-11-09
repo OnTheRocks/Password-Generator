@@ -19,6 +19,9 @@
 
 function generate() {
   var pwLength = prompt("How long would you like your password to be?  (8-128 Characters)");
+
+    if(pwLength > 8 && pwLength < 126) { 
+      
   var specialChar = ("Would you like special characters in your password?");
   var numChars = confirm("Do you want the password to contain numbers?");
   var capChar = confirm("Do you want your password to contain capitolized letters?");
@@ -26,10 +29,15 @@ function generate() {
 
 
 
+
+
   console.log("The password is " + pwLength);
   console.log("Numbers? " + numChars);
-  console.log("Upper&Lower case? " + caseChar);
+  console.log("Uppercase? " + capChar);
+  console.log("Lowercase? " + lowerChar);
 }
+}
+
 
 
       
