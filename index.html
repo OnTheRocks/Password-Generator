@@ -12,6 +12,29 @@
   </head>
   <body>
 
+    <script>
+
+
+
+
+function generate() {
+  var pwLength = prompt("How long would you like your password to be?  (8-128 Characters)");
+  var specialChar = ("Would you like special characters in your password?");
+  var numChars = confirm("Do you want the password to contain numbers?");
+  var capChar = confirm("Do you want your password to contain capitolized letters?");
+  var lowerChar = confirm ("How about lower case letters?");
+
+
+
+  console.log("The password is " + pwLength);
+  console.log("Numbers? " + numChars);
+  console.log("Upper&Lower case? " + caseChar);
+}
+
+
+      
+    </script>
+
     <h1 id="title">Password Generator</h1>
 
       <div class="row">
@@ -24,7 +47,7 @@
                       Your Secure Password
                     </div>
                 <hr>
-                <a id="generate-btn" href="#" class="btn">Generate Password</a>
+                <a id="generate-btn" href="#" class="btn" onclick="generate()">Generate Password</a>
                 <a id="copy-btn" href="#" class="btn">Copy to Clipboard</a>
               </div>
             </div>
