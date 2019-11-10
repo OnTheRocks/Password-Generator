@@ -20,22 +20,89 @@
 function generate() {
   var pwLength = prompt("How long would you like your password to be?  (8-128 Characters)");
 
-    if(pwLength > 8 && pwLength < 126) { 
+    if(pwLength > 7 && pwLength < 129) { 
       
-  var specialChar = ("Would you like special characters in your password?");
+  var specialChar = confirm("Would you like special characters in your password?");
   var numChars = confirm("Do you want the password to contain numbers?");
   var capChar = confirm("Do you want your password to contain capitolized letters?");
   var lowerChar = confirm ("How about lower case letters?");
 
+  var patternNum = "0123456789";
+  var patternUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var patternLower = "abcdefghijklmnopqrstuvwxyz";
+  var patternSpecial = "!#$%&'()*+,-./?@^_`{|}~";
 
-
-
+  var password = ""
 
   console.log("The password is " + pwLength);
   console.log("Numbers? " + numChars);
   console.log("Uppercase? " + capChar);
   console.log("Lowercase? " + lowerChar);
-}
+  console.log("special " + specialChar);
+
+  if((numChars) && (capChar) && (lowerChar) && (specialChar)) {
+    var charList = patternNum + patternUpper + patternLower + patternSpecial;
+  }
+      else if ((!numChars) && (capChar) && (lowerChar) && (specialChar)) {
+          charList = patternUpper + patternLower + patternSpecial;
+      }
+
+      else if ((!numChars) && (!capChar) && (lowerChar) && (specialChar)) {
+          charList = patternLower + patternSpecial;
+      }
+
+      else if ((!numChars) && (!capChar) && (!lowerChar) && (specialChar)) {
+          charList = patternSpecial;
+      }
+
+      else if ((!numChars) && (capChar) && (!lowerChar) && (!specialChar)) {
+          charList = patternUpper;
+      }
+
+      else if ((!numChars) && (capChar) && (lowerChar) && (!specialChar)) {
+          charList = patternUpper + patternLower;
+      }
+
+      else if ((numChars) && (capChar) && (lowerChar) && (!specialChar)) {
+          charList = patternNum +patternUpper + patternLower;
+      }
+
+      else if ((numChars) && (capChar) && (!lowerChar) && (!specialChar)) {
+          charList = patternUpper + patternNum;
+      }
+
+      else if ((numChars) && (!capChar) && (!lowerChar) && (!specialChar)) {
+          charList = patternNum;
+      }
+
+      else if ((numChars) && (!capChar) && (!lowerChar) && (specialChar)) {
+          charList = patternNum + patternSpecial;
+      }
+
+      else if ((!numChars) && (capChar) && (!lowerChar) && (specialChar)) {
+          charList = patternSpecial + patternUpper;
+      }
+
+      else if ((numChars) && (!capChar) && (lowerChar) && (!specialChar)) {
+          charList = patternNum + patternLower;
+      }
+
+      else if ((!numChars) && (!capChar) && (!lowerChar) && (!specialChar)) {
+          alert("You must select at least 1 character type.");
+      }
+
+      for (var i = 0; n = charList.length; i < pwLength; i++){
+        // var rndChar = Math.floor(Math.random() * pwLength);
+        password += charList.charAt(Math.floor(Math.random() * n));
+        
+
+
+        console.log(rndChar); 
+
+    
+  }
+  
+  }
 }
 
 
