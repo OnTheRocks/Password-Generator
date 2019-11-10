@@ -91,6 +91,10 @@ function generate() {
       else if ((numChars) && (capChar) && (!lowerChar) && (specialChar)) {
       var charList = patternNum + patternUpper + patternSpecial;
       }
+
+      else if ((!numChars) && (!capChar) && (lowerChar) && (!specialChar)) {
+      var charList = patternLower;
+      }
      
 
       else if ((!numChars) && (!capChar) && (!lowerChar) && (!specialChar)) {
@@ -102,18 +106,19 @@ function generate() {
         password += charList.charAt(Math.floor(Math.random() * n));
       }
   console.log(password);
- 
-  }
+ }
+  
 document.getElementById("outputBox").innerHTML = password;
 }
 
  function copyToClipboard() {
 
-  var outputField = document.getElementById("outputBox");
-  outputField.select();
-  document.execCommand("Copy");
-
- }
+  document.getElementById("outputBox");
+  // outputField.select();
+  outputBox.innerHTML.select;
+  document.execCommand("Copy")
+}
+ 
 
       
     </script>
