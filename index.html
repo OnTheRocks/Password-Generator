@@ -22,10 +22,11 @@ function generate() {
 
     if(pwLength > 7 && pwLength < 129) { 
       
-  var specialChar = confirm("Would you like special characters in your password?");
+  
   var numChars = confirm("Do you want the password to contain numbers?");
   var capChar = confirm("Do you want your password to contain capitolized letters?");
   var lowerChar = confirm ("How about lower case letters?");
+  var specialChar = confirm("Would you like special characters in your password?");
 
   var patternNum = "0123456789";
   var patternUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -44,68 +45,75 @@ function generate() {
     var charList = patternNum + patternUpper + patternLower + patternSpecial;
   }
       else if ((!numChars) && (capChar) && (lowerChar) && (specialChar)) {
-          charList = patternUpper + patternLower + patternSpecial;
+        var charList = patternUpper + patternLower + patternSpecial;
       }
 
       else if ((!numChars) && (!capChar) && (lowerChar) && (specialChar)) {
-          charList = patternLower + patternSpecial;
+      var charList = patternLower + patternSpecial;
       }
 
       else if ((!numChars) && (!capChar) && (!lowerChar) && (specialChar)) {
-          charList = patternSpecial;
+      var charList = patternSpecial;
       }
 
       else if ((!numChars) && (capChar) && (!lowerChar) && (!specialChar)) {
-          charList = patternUpper;
+      var charList = patternUpper;
       }
 
       else if ((!numChars) && (capChar) && (lowerChar) && (!specialChar)) {
-          charList = patternUpper + patternLower;
+      var charList = patternNum + patternSpecial;
       }
 
       else if ((numChars) && (capChar) && (lowerChar) && (!specialChar)) {
-          charList = patternNum +patternUpper + patternLower;
+      var charList = patternNum + patternUpper + patternLower;
       }
 
-      else if ((numChars) && (capChar) && (!lowerChar) && (!specialChar)) {
-          charList = patternUpper + patternNum;
+        else if ((numChars) && (capChar) && (!lowerChar) && (!specialChar)) {
+      var charList = patternNum + patternUpper;
       }
 
       else if ((numChars) && (!capChar) && (!lowerChar) && (!specialChar)) {
-          charList = patternNum;
+      var charList = patternNum;
       }
 
       else if ((numChars) && (!capChar) && (!lowerChar) && (specialChar)) {
-          charList = patternNum + patternSpecial;
+      var charList = patternNum + patternSpecial;
       }
 
       else if ((!numChars) && (capChar) && (!lowerChar) && (specialChar)) {
-          charList = patternSpecial + patternUpper;
+      var charList = patternUpper + patternSpecial;
       }
 
       else if ((numChars) && (!capChar) && (lowerChar) && (!specialChar)) {
-          charList = patternNum + patternLower;
+      var charList = patternNum + patternLower;
       }
+
+      else if ((numChars) && (capChar) && (!lowerChar) && (specialChar)) {
+      var charList = patternNum + patternUpper + patternSpecial;
+      }
+     
 
       else if ((!numChars) && (!capChar) && (!lowerChar) && (!specialChar)) {
           alert("You must select at least 1 character type.");
       }
 
-      for (var i = 0; n = charList.length; i < pwLength; i++){
+      for (var i = 0, n = charList.length; i < pwLength; i++){
         // var rndChar = Math.floor(Math.random() * pwLength);
         password += charList.charAt(Math.floor(Math.random() * n));
-        
-
-
-        console.log(rndChar); 
-
-    
+      }
+  console.log(password);
+ 
   }
-  
-  }
+document.getElementById("outputBox").innerHTML = password;
 }
 
+ function copyToClipboard() {
 
+  var outputField = document.getElementById("outputBox");
+  outputField.select();
+  document.execCommand("Copy");
+
+ }
 
       
     </script>
@@ -118,12 +126,12 @@ function generate() {
               <div class="card-body">
                 <h4 class="card-title">Generate a Password</h4>
                 <hr>
-                    <div class="outputBox">
+                    <div id="outputBox">
                       Your Secure Password
                     </div>
                 <hr>
                 <a id="generate-btn" href="#" class="btn" onclick="generate()">Generate Password</a>
-                <a id="copy-btn" href="#" class="btn">Copy to Clipboard</a>
+                <a id="copy-btn" href="#" class="btn" onclick="copyToClipboard()">Copy to Clipboard</a>
               </div>
             </div>
           </div>
