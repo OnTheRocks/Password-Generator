@@ -92,6 +92,10 @@ function generate() {
       var charList = patternNum + patternUpper + patternSpecial;
       }
 
+      else if ((numChars) && (!capChar) && (lowerChar) && (specialChar)) {
+      var charList = patternNum + patternLower + patternSpecial;
+      }
+
       else if ((!numChars) && (!capChar) && (lowerChar) && (!specialChar)) {
       var charList = patternLower;
       }
@@ -102,20 +106,18 @@ function generate() {
       }
 
       for (var i = 0, n = charList.length; i < pwLength; i++){
-        // var rndChar = Math.floor(Math.random() * pwLength);
+      
         password += charList.charAt(Math.floor(Math.random() * n));
       }
   console.log(password);
  }
   
-document.getElementById("outputBox").innerHTML = password;
+document.getElementById("outputBox").value = password;
 }
 
  function copyToClipboard() {
-
-  document.getElementById("outputBox");
-  // outputField.select();
-  outputBox.innerHTML.select;
+   document.getElementById("outputBox").select();
+  // outputBox.innerHTML.select;
   document.execCommand("Copy")
 }
  
@@ -131,9 +133,9 @@ document.getElementById("outputBox").innerHTML = password;
               <div class="card-body">
                 <h4 class="card-title">Generate a Password</h4>
                 <hr>
-                    <div id="outputBox">
-                      Your Secure Password
-                    </div>
+           
+                      <input type="text" id="outputBox" value=" Your Secure Password">
+                 
                 <hr>
                 <a id="generate-btn" href="#" class="btn" onclick="generate()">Generate Password</a>
                 <a id="copy-btn" href="#" class="btn" onclick="copyToClipboard()">Copy to Clipboard</a>

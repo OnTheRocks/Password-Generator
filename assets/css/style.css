@@ -23,17 +23,18 @@ body {
 
 #copy-btn {
   float: right;
-  background-color: #c0c7cf;
+  background-color: lightblue;
   color: white;
   border-radius: 25px;
 }
 
 
 
-.outputBox {
+#outputBox {
   text-align: center;
   color: #757575;
   border: 2px dashed #c0c7cf;
-  height: 120px;
+  /* height: 120px; */
+  width: 100%;
  /* margin-bottom: 15px; */
 } 
